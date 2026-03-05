@@ -72,7 +72,7 @@ export default function ActivityForm() {
       setSteps("");
       setCalories("");
       // Refresh the activity list to show the newly added activity
-      refreshActivities();
+   
     } catch (error) {
       console.log(error);
       toast.error("Failed to save activity");
