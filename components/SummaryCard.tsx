@@ -17,7 +17,9 @@ export default function SummaryCard() {
     steps: number,
     calories: number,
   ) => {
+    setSuggestion("");
     setLoadingSuggestion(true);
+  
     try {
       const res = await fetch("/api/suggestion", {
         method: "POST",
@@ -101,11 +103,12 @@ export default function SummaryCard() {
         </div>
 
         {loadingSuggestion ? (
-          <p className="text-sm text-[#7a917a] animate-pulse">
-            Generating suggestion...
-          </p>
+          <div className="flex items-center gap-2 text-sm text-[#7a917a] animate-pulse">
+            <Sparkles size={14} />
+            Generating AI health suggestion...
+          </div>
         ) : (
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 leading-relaxed">
             {suggestion || "No suggestion yet."}
           </p>
         )}
